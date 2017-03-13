@@ -1,16 +1,40 @@
 <h1><%= @student.first_name %> <%= @student.last_name %></h1>
 <p><%= @student.email %></p>
-<p><%# @student.phone_number %></p>
-<p><%# @student.short_bio %></p>
-<p><%# @student.linkedin_url %></p>
-<p><%# @student.twitter_handle %></p>
-<p><%# @student.personal_blog %></p>
-<p><%# @student.online_resume %></p>
-<p><%# @student.github_url %></p>
-
-
-
-<p><%# @student %></p>
-<p><%# @student.photo %></p>
-<p><%# @student.photo %></p>
-<p><%# @student.photo %></p>
+<p><%# @student["phone_number"] %></p>
+<p><%# @student["short_bio"] %></p>
+<p><%# @student["linkedin_url"] %></p>
+<p><%# @student["twitter_handle"] %></p>
+<p><%# @student["personal_blog"] %></p>
+<p><%# @student["online_resume"] %></p>
+<p><%# @student["github_url"] %></p>
+-------------------------------------
+<br>
+<h2>Capstones <% @student["capstones"].each do |caps| %></h2>
+  <h3><%= caps["name"] %></h3>
+  <p><%= caps["description"] %></p>
+  <p><%= caps["url"] %></p>
+  <% end  %>
+-------------------------------------
+<br>
+<h2>Work Experience<% @student["experiences"].each do |job| %></h2>
+  <h3><%= job["title"] %> at <%= job["company_name"] %></h3>
+  <br>
+  <p><%= job["start_date"] %> to <%= job["end_date"] %></p>
+  <p><%= job["details"] %></p>
+<% end %>
+-------------------------------------
+<br>
+<h2>Education<% @student["educations"].each do |school| %></h2>
+  <h3><%= school["degree"] %> at <%= school['name'] %></h3>
+  <br>
+  <p><%= school["start_date"] %> to <%= school["end_date"] %></p>
+  <p><%= school["details"] %></p>
+<% end %>
+-------------------------------------
+<br>
+<h2>Skills</h2>
+<ul>
+  <% @student["skills"].each do |skill| %>
+  <li><%= skill["name"] %></li>
+  <% end %>
+</ul>
